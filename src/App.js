@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+// src/App.js
+import React from 'react';
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import Interviews from './components/Dashboard/Interviews';
+import NewInterview from './components/Dashboard/NewInterview';
+import EditTemplates from './components/Dashboard/EditTemplates';
+
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/dashboard/interviews" element={<Interviews />} />
+        <Route path="/dashboard/New-interview" element={<NewInterview />} />
+        <Route path="/dashboard/edit-templates" element={<EditTemplates />} />
+      </Routes>
+    </Router>
   );
 }
 
